@@ -1,0 +1,88 @@
+[
+	{
+		"question": "What year did Satoshi Nakamoto publish the bitcoin whitepaper?",
+		"choices": ["2000", "2008", "2009", "2013"],
+		"correctChoice": 1
+	},
+	{
+		"question": "What is bitcoin?",
+		"choices": [
+			"The newest Ethereum-compatible network developed by the Oasis community of developers",
+			"A cryptocurrency designed for criminals",
+			"A distributed network that allows you to transfer wealth over internet without intermediaries"
+		],
+		"correctChoice": 2
+	},
+	{
+		"question": "What is Ethereum?",
+		"choices": [
+			"A distributed network inspired by bitcoin which also enables execution of general-purpose programs beside the token transfers",
+			"A delicious cream designed by Kolinska in 1982",
+			"An automatic transmission design proposed by the Volkswagen AG concern"
+		],
+		"correctChoice": 0
+	},
+	{
+		"question": "What is ledger?",
+		"choices": [
+			"Political manifesto of the big banks and liberal capitalism opponents, written in 2008 at the outbreak of the global financial crisis",
+			"A linked list of blocks, each containing transactions and the hash value of the previous block to ensure data authenticity",
+			"An ancient religious book of the Celts, discovered in 1998 near Bath in the west of England"
+		],
+		"correctChoice": 1
+	},
+	{
+		"question": "What's the expected block confirmation time on Oasis Sapphire?",
+		"choices": [
+			"10 minutes",
+			"12 seconds",
+			"6 seconds"
+		],
+		"correctChoice": 2
+	},
+	{
+		"question": "Which programming language do we usually write programs for the Ethereum Virtual Machine in?",
+		"choices": [
+			"C",
+			"Solidity",
+			".Net"
+		],
+		"correctChoice": 1
+	},
+	{
+		"question": "What is Oasis Sapphire?",
+		"choices": [
+			"A company that has been engaged in the production and distribution of water in the Middle West, Africa and Central Asia since 1962",
+			"A distributed network compatible with Ethereum development tools that allows programs to run in a secret manner",
+			"A diamond mine in the south-east of South Africa"
+		],
+		"correctChoice": 1
+	},
+	{
+		"question": "What is the name of the native cryptocurrency used in the Oasis network?",
+		"choices": [
+			"OAS",
+			"BTC",
+			"ROSE"
+		],
+		"correctChoice": 2
+	},
+	{
+		"question": "Which of the addresses below is a valid wallet address on the Ethereum and Oasis Sapphire networks?",
+		"choices": [
+			"bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+			"surely89@oasis.io",
+			"0xDce075E1C39b1ae0b75D554558b6451A226ffe00"
+		],
+		"correctChoice": 2
+	},
+	{
+		"question": "Which of the following is a valid wallet private key on the Ethereum and Oasis Sapphire networks?",
+		"choices": [
+			"0b00110010010010001011100100100010111010100101010011010110101010",
+			"0xc0e43d8755f201b715fd5a9ce0034c568442543ae0a0ee1aec2985ffe40edb99",
+			"L1bdCJ1nZXxdHNWwDw8hVuQoqgZEue1kVtPE1SWXRwbJxQkfRTvT"
+		],
+		"correctChoice": 1
+	}
+]
