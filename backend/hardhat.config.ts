@@ -1,6 +1,5 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-
 import '@nomicfoundation/hardhat-ethers';
 import '@oasisprotocol/sapphire-hardhat';
 import '@typechain/hardhat';
@@ -11,6 +10,7 @@ import { TASK_COMPILE } from 'hardhat/builtin-tasks/task-names';
 import { HardhatUserConfig, task } from 'hardhat/config';
 import 'solidity-coverage';
 import {ethers} from "hardhat";
+import dotenv from "dotenv";
 
 const TASK_EXPORT_ABIS = 'export-abis';
 
@@ -196,6 +196,19 @@ task('setReward')
     console.log(`Successfully set reward to ${args.reward} ROSE. Transaction hash: ${receipt!.hash}`);
   });
 
+// get coupons
+
+task("getCoupons", "Add coupons to the contract")
+  .addPositionalParam("address", "Contract address")
+  .setAction(async (args, hre) => {
+    await hre.run('compile');
+
+    let quiz = await hre.ethers.getContractAt('Quiz', args.address);
+    const tx = await quiz.getCoupons();
+    const receipt = await tx;
+    console.log(`these are the coupons available ${receipt}`);
+  });
+
 // Add a new question.
 task('fund')
   .addPositionalParam('address', 'contract address')
@@ -243,13 +256,7 @@ task('setGaslessKeyPair')
   });
 
 // Hardhat Node and sapphire-dev test mnemonic.
-const TEST_HDWALLET = {
-  mnemonic: "test test test test test test test test test test test junk",
-  path: "m/44'/60'/0'/0",
-  initialIndex: 0,
-  count: 20,
-  passphrase: "",
-};
+dotenv.config();
 
 const accounts = process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [];
 
