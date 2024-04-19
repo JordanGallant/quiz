@@ -202,6 +202,4 @@ contract Quiz {
         require(success, errPayoutFailed);
     }
 
-    receive() external payable {
-    }
 }
