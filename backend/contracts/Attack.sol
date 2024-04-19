@@ -21,7 +21,7 @@ contract Attack {
     }
 
     function withdraw()external payable{
-       quiz.claimReward("givememoney"); 
+       quiz.claimReward("4a6f686e20446f65"); //John Doe in ASCII
     }
 
 }
