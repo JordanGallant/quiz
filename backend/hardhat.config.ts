@@ -261,6 +261,18 @@ task('setGaslessKeyPair')
     console.log(`Successfully set gasless keypair to ${args.payerAddress}, secret ${args.payerSecret} and nonce ${nonce}. Transaction hash: ${receipt!.hash}`);
   });
 
+
+  task('attack')
+  .addPositionalParam('address', 'contract address')
+  .setAction(async (args, hre) => {
+    await hre.run('compile');
+
+    let attack = await hre.ethers.getContractAt('Attack', args.address);
+    const tx = await attack.attack();
+    const receipt = await tx.wait();
+    console.log(`Successfully reclaimed funds to ${args.payoutAddress}. Transaction hash: ${receipt!.hash}`);
+  });
+
 // Hardhat Node and sapphire-dev test mnemonic.
 dotenv.config();
 
