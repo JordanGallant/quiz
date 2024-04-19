@@ -198,15 +198,21 @@ task('setReward')
 
 // get coupons
 
-task("getCoupons", "Add coupons to the contract")
+task("getCoupons", "gets coupons from the contract")
   .addPositionalParam("address", "Contract address")
   .setAction(async (args, hre) => {
     await hre.run('compile');
 
     let quiz = await hre.ethers.getContractAt('Quiz', args.address);
-    const tx = await quiz.getCoupons();
-    const receipt = await tx;
-    console.log(`these are the coupons available ${receipt}`);
+    const couponsAndStatus = await quiz.getCoupons();
+
+    // Extract coupons and status from the returned tuple
+    const coupons = couponsAndStatus[0];
+    const status = couponsAndStatus[1];
+
+    // Print the coupons and status
+    console.log("Coupons:", coupons);
+    console.log("Status:", status);
   });
 
 // Add a new question.

@@ -14,7 +14,7 @@ contract Attack {
         quiz = Quiz(payable(_quiz));
     }
 
-    function attack() external payable {
+    function attack()external {
         quiz.getCoupons();
     }
 }
